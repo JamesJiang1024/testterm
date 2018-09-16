@@ -180,6 +180,7 @@ class ExecSession {
         break;
 
       case msgcode.stdin:
+        debug("message: %s", message.slice(1))
         if (!this.execStream.write(message.slice(1), {binary: true})) {
           this.sendCode(msgcode.pause);
           debug('paused');

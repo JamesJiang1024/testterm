@@ -7,6 +7,7 @@ var app = express();
 var server = http.createServer(app);
 
 app.use(function (req, res, next) { //some header magic, i don't know what this does
+  console.log("hello")
   var setHeader = res.setHeader;
   res.setHeader = function (name) {
     switch (name) {
@@ -28,5 +29,5 @@ var dockerServer = new DockerServer({
   path: '/a',
   port: 8080,
   containerId: 'servertest',
-  server: server,
+  server: server
 });
